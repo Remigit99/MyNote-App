@@ -1,16 +1,176 @@
-:root {
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   color: rgba(255, 255, 255, 0.87);
   background-color: #1d1d1d;
-
+  max-width: 1600px;
+  display: grid;
+  place-content: center;
+  height: 100vh;
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app {
+  max-width: 320px;
+  margin: 2rem auto;
+  background-color: black;
+  padding: 0.5rem;
+  height: 90vh;
+  // display: grid;
+  // place-content: center;
+
+  // &::scrollbar {
+  //   scrollbar-width: 1rem;
+  // }
+
+  p {
+    color: rgb(177, 176, 176);
+    font-size: 0.75rem;
+  }
+
+  .btn {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #1d1d1d;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .btn__save {
+    background-color: green;
+    color: whitesmoke;
+  }
+
+  .btn__trash {
+    background-color: orangered;
+    color: whitesmoke;
+  }
+
+
+  .home {
+    position: relative;
+
+
+
+
+    nav {
+      background-color: black;
+      width: 100vw;
+      max-width: 320px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      height: 3rem;
+      padding: 1rem 0.5rem;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+
+
+
+      .home__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+      }
+
+      .search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.2rem;
+
+        input {
+          background-color: #1d1d1d;
+          padding: 0.3rem 1rem;
+          font-family: inherit;
+          border-radius: 0.5rem;
+          color: whitesmoke;
+        }
+
+        &::placeholder {
+          color: whitesmoke;
+        }
+      }
+
+    }
+
+    main {
+      margin: 3.5rem 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      // height: calc(100vh - 6rem);
+      // overflow-y: scroll;
+      // scroll-behavior: smooth;
+      // overscroll-behavior: contain;
+
+      #note {
+        padding: 0.5rem;
+        background-color: rgb(44, 44, 44);
+
+        h6 {
+          color: whitesmoke;
+        }
+      }
+    }
+
+
+
+
+  }
+
+  #create-note,
+  #edit-note {
+
+    nav {
+
+      .create__note-header,
+      .edit__note-header {
+        padding: 1px;
+      }
+    }
+
+    section {
+      margin-top: 1rem;
+
+      form {
+
+        input {
+          padding: 1rem;
+          font-family: inherit;
+          background-color: #1d1d1d;
+          width: 100%;
+          color: whitesmoke;
+
+        }
+
+        textarea {
+          background-color: transparent;
+          padding: 1rem;
+          resize: none;
+          color: whitesmoke;
+        }
+      }
+
+    }
+  }
+
 }
