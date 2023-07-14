@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useDate } from "../hook/useDate"
 import { IoIosArrowBack } from "react-icons/io"
 
 
-const CreateNote = ({ notes, setNotes }) => {
+const CreateNote = ({ setNotes }) => {
     const navigate = useNavigate()
     const date = useDate()
 
