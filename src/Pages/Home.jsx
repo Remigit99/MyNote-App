@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import Note from "../components/Note"
-import { myNotes } from "../data"
+
 import { CiSearch } from "react-icons/ci"
 import { useState } from "react"
 
-const Home = () => {
+const Home = ({ notes }) => {
 
 
     const [showSearch, setShowSearch] = useState(false)
@@ -39,14 +40,19 @@ const Home = () => {
 
             <main>
                 {
-                    myNotes.map((note) => {
+                    notes.map((note) => {
                         return (
                             <Note key={note.id} {...note} />
                         )
                     })
                 }
             </main>
+
+
         </div>
+
+
+
     )
 }
 

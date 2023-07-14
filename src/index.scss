@@ -20,6 +20,9 @@ body {
   display: grid;
   place-content: center;
   height: 100vh;
+  width: 100%;
+  overflow-y: hidden;
+
 }
 
 .app {
@@ -28,6 +31,7 @@ body {
   background-color: black;
   padding: 0.5rem;
   height: 90vh;
+  overflow-y: scroll;
   // display: grid;
   // place-content: center;
 
@@ -59,12 +63,17 @@ body {
     color: whitesmoke;
   }
 
+  .btn__create {
+    position: absolute;
+    right: 3.5rem;
+    bottom: 3.5rem;
+    z-index: 5;
+  }
+
 
   .home {
     position: relative;
-
-
-
+    height: 85vh;
 
     nav {
       background-color: black;
@@ -87,8 +96,6 @@ body {
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-
       }
 
       .search {
@@ -113,14 +120,14 @@ body {
     }
 
     main {
-      margin: 3.5rem 0 2rem;
+      margin: 1.5rem 0 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
       // height: calc(100vh - 6rem);
-      // overflow-y: scroll;
-      // scroll-behavior: smooth;
-      // overscroll-behavior: contain;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      overscroll-behavior: contain;
 
       #note {
         padding: 0.5rem;
@@ -144,7 +151,9 @@ body {
 
       .create__note-header,
       .edit__note-header {
-        padding: 1px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
     }
 
@@ -167,6 +176,7 @@ body {
           padding: 1rem;
           resize: none;
           color: whitesmoke;
+          width: 100%;
         }
       }
 

@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 
-const Note = ({ id, title, details }) => {
+const Note = ({ id, title, details, date }) => {
     return (
 
         <Link to={`/edit-note/${id}`}>
@@ -12,6 +12,10 @@ const Note = ({ id, title, details }) => {
                 </div>
                 <div className="content">
                     <p>{details.length > 40 ? details.substring(0, 40) + "..." : details}</p>
+                </div>
+
+                <div className="date">
+                    <p>{date}</p>
                 </div>
             </div>
         </Link>
