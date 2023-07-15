@@ -20,18 +20,26 @@ const EditNote = ({ notes, setNotes }) => {
         e.preventDefault()
 
         if (title && details) {
-            const newNote = { id: note.id, title, details, date: newDate }
+            const newNote = { ...note, title, details, date: newDate }
             // setNotes(prevNote => [newNote, ...prevNote])
 
             const newNotes = notes.map(item => {
                 if (item.id == id) {
                     item = newNote
                 }
+
+                return item;
             })
 
             setNotes(newNotes)
             navigate("/")
         }
+    }
+
+    const handleDelete = () => {
+        const latestNotes = notes.filter((note) => note.id !== id)
+        setNotes(latestNotes)
+        navigate("/")
     }
 
     return (
@@ -47,7 +55,7 @@ const EditNote = ({ notes, setNotes }) => {
 
                     <button className="btn btn__save" onClick={handleSubmit}>save</button>
 
-                    <button className="btn btn__trash">
+                    <button className="btn btn__trash" onClick={handleDelete}>
                         <RiDeleteBin6Line />
                     </button>
                 </div>

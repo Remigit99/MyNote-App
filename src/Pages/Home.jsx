@@ -2,12 +2,26 @@
 import Note from "../components/Note"
 
 import { CiSearch } from "react-icons/ci"
+import { AiOutlineClose } from "react-icons/ai"
 import { useState } from "react"
+import { useEffect } from "react"
 
 const Home = ({ notes }) => {
 
-
     const [showSearch, setShowSearch] = useState(false)
+    const [searchValue, setSearchValue] = useState("")
+    const [filteredNotes, setFilteredNotes] = useState(notes)
+
+    const handleSearch = () => {
+        setFilteredNotes(notes.filter((note) => {
+            if (note.title.toLowerCase().match(searchValue.toLowerCase())) {
+                return note
+            }
+        }))
+    }
+
+
+    useEffect(() => { handleSearch }, [searchValue])
 
     return (
         <div className="home">
@@ -23,37 +37,50 @@ const Home = ({ notes }) => {
                         }
                         {
                             showSearch &&
-                            <input autoFocus type="text" placeholder="Search..." />
+                            <input autoFocus type="text" placeholder="Search..." value={searchValue}
+                                onChange={(e) => {
+                                    setSearchValue(e.target.value);
+                                    handleSearch();
+                                }}
+                            />
                         }
-
-
 
                     </div>
 
-                    <button className="btn" onClick={() => setShowSearch(prev => !prev)}>
-                        <CiSearch />
-                    </button>
+                    {
+                        showSearch ?
+                            <button className="btn" onClick={() => setShowSearch(prev => !prev)}>
+                                <AiOutlineClose className="btn-close" />
+                            </button> :
+                            <button className="btn" onClick={() => setShowSearch(prev => !prev)}>
+                                <CiSearch />
+                            </button>
+                    }
+
+
                 </header>
 
             </nav>
 
-
-            <main>
-                {
-                    notes.map((note) => {
-                        return (
-                            <Note key={note.id} {...note} />
-                        )
-                    })
-                }
-            </main>
-
+            {
+                notes.length == 0 ? <div className="empty__note">
+                    <h4>Note App Empty</h4>
+                </div> :
+                    <main>
+                        {
+                            filteredNotes.map((note) => {
+                                return (
+                                    <Note key={note.id} {...note} />
+                                )
+                            })
+                        }
+                    </main>
+            }
 
         </div>
 
-
-
     )
 }
+
 
 export default Home

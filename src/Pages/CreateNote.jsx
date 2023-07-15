@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
+// eslint - disable react / prop - types * /
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { useDate } from "../hook/useDate"
 import { IoIosArrowBack } from "react-icons/io"
+import { v4 as uuid } from "uuid"
 
 
 const CreateNote = ({ setNotes }) => {
@@ -14,7 +16,7 @@ const CreateNote = ({ setNotes }) => {
     const [title, setTitle] = useState("")
     const [details, setDetails] = useState("")
 
-    const note = { id: crypto.randomUUID(), title, details, date }
+    const note = { id: uuid(), title, details, date }
 
     const handleSubmit = (e) => {
         e.preventDefault()

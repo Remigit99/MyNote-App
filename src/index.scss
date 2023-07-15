@@ -25,6 +25,10 @@ body {
 
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .app {
   max-width: 320px;
   margin: 2rem auto;
@@ -32,12 +36,13 @@ body {
   padding: 0.5rem;
   height: 90vh;
   overflow-y: scroll;
+  position: relative;
   // display: grid;
   // place-content: center;
 
-  // &::scrollbar {
-  //   scrollbar-width: 1rem;
-  // }
+  ::-webkit-scrollbar {
+    display: none;
+  }
 
   p {
     color: rgb(177, 176, 176);
@@ -68,12 +73,36 @@ body {
     right: 3.5rem;
     bottom: 3.5rem;
     z-index: 5;
+    // background-color: black;
+  }
+
+  .btn-close {
+    color: whitesmoke;
+
   }
 
 
   .home {
     position: relative;
     height: 85vh;
+    width: 100%;
+    min-width: 325px;
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .empty__note {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      h4 {
+        color: antiquewhite;
+      }
+    }
+
 
     nav {
       background-color: black;
@@ -86,6 +115,7 @@ body {
       margin: 0 auto;
       height: 3rem;
       padding: 1rem 0.5rem;
+      z-index: 20;
       // display: flex;
       // justify-content: center;
       // align-items: center;
@@ -132,6 +162,28 @@ body {
       #note {
         padding: 0.5rem;
         background-color: rgb(44, 44, 44);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        cursor: pointer;
+        transition: all 300ms ease;
+
+
+        &:hover {
+          opacity: 0.9;
+        }
+
+        &:nth-child(3) {
+          grid-column: 1/3;
+        }
+
+        &:nth-child(4) {
+          grid-row: 3/5;
+        }
+
+        &:nth-child(7) {
+          grid-column: 1/3;
+        }
 
         h6 {
           color: whitesmoke;
