@@ -18,10 +18,7 @@ body {
   background-color: #1d1d1d;
   max-width: 1600px;
   display: grid;
-  place-content: center;
-  height: 100vh;
-  width: 100%;
-  overflow-y: hidden;
+  place-items: center;
 
 }
 
@@ -29,67 +26,100 @@ body {
   display: none;
 }
 
-.app {
-  max-width: 320px;
-  margin: 2rem auto;
-  background-color: black;
+@mixin device ($breakpoint) {
+  @if $breakpoint ==mobile {
+    @media screen and (max-width: 270px) {
+      @content;
+    }
+  }
+}
+
+p {
+  color: rgb(177, 176, 176);
+  font-size: 0.75rem;
+}
+
+.btn {
   padding: 0.5rem;
-  height: 90vh;
+  border-radius: 0.5rem;
+  background-color: #1d1d1d;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn__save {
+  background-color: green;
+  color: whitesmoke;
+}
+
+.btn__trash {
+  background-color: orangered;
+  color: whitesmoke;
+}
+
+.app .btn__create {
+  position: absolute;
+  right: 3.5rem;
+  bottom: 3.5rem;
+  z-index: 5000;
+  background-color: green;
+}
+
+.btn-close {
+  color: whitesmoke;
+}
+
+/*======= App=========*/
+.app {
+  width: 25rem;
+  height: 48rem;
+  background-color: black;
+  margin: 2.5rem auto;
+  padding: 1px 1rem 0.5rem;
   overflow-y: scroll;
   position: relative;
-  // display: grid;
-  // place-content: center;
+  z-index: 100;
 
-  ::-webkit-scrollbar {
-    display: none;
+  @include device(mobile) {
+    width: 15rem;
   }
-
-  p {
-    color: rgb(177, 176, 176);
-    font-size: 0.75rem;
-  }
-
-  .btn {
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: #1d1d1d;
-    color: white;
-    cursor: pointer;
-    font-family: inherit;
-  }
-
-  .btn__save {
-    background-color: green;
-    color: whitesmoke;
-  }
-
-  .btn__trash {
-    background-color: orangered;
-    color: whitesmoke;
-  }
-
-  .btn__create {
-    position: absolute;
-    right: 3.5rem;
-    bottom: 3.5rem;
-    z-index: 5;
-    // background-color: black;
-  }
-
-  .btn-close {
-    color: whitesmoke;
-
-  }
-
 
   .home {
     position: relative;
-    height: 85vh;
-    width: 100%;
-    min-width: 325px;
+    z-index: 200;
 
-    ::-webkit-scrollbar {
-      display: none;
+    nav {
+      background-color: black;
+      padding: 0.5rem 0;
+      z-index: 20;
+
+      .search {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+
+        input {
+          background-color: #1d1d1d;
+          padding: 0.3rem 1rem;
+          font-family: inherit;
+          border-radius: 0.2rem;
+          color: whitesmoke;
+          display: flex;
+          flex: 1;
+
+
+          &::placeholder {
+            color: whitesmoke;
+          }
+        }
+      }
+
+
+      // }
+
+
     }
 
     .empty__note {
@@ -103,93 +133,37 @@ body {
       }
     }
 
+    #main {
+      margin: 1rem 0 1.5rem;
 
-    nav {
-      background-color: black;
-      width: 100vw;
-      max-width: 320px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      height: 3rem;
-      padding: 1rem 0.5rem;
-      z-index: 20;
-      // display: flex;
-      // justify-content: center;
-      // align-items: center;
-
-
-
-      .home__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .search {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.2rem;
-
-        input {
-          background-color: #1d1d1d;
-          padding: 0.3rem 1rem;
-          font-family: inherit;
-          border-radius: 0.5rem;
-          color: whitesmoke;
-        }
-
-        &::placeholder {
-          color: whitesmoke;
-        }
-      }
-
-    }
-
-    main {
-      margin: 1.5rem 0 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      // height: calc(100vh - 6rem);
-      overflow-y: hidden;
-      scroll-behavior: smooth;
-      overscroll-behavior: contain;
-
-      #note {
-        padding: 0.5rem;
-        background-color: rgb(44, 44, 44);
-        display: flex;
-        flex-direction: column;
+      main {
+        padding: 0.2rem 0 1rem;
+        display: grid;
+        // grid-template-columns: 1fr 1fr;
         gap: 1rem;
-        cursor: pointer;
-        transition: all 300ms ease;
+        // height: calc(100vh - 6rem);
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        overscroll-behavior: contain;
 
+        #note {
+          padding: 0.5rem;
+          background-color: rgb(44, 44, 44);
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          cursor: pointer;
+          transition: all 300ms ease;
 
-        &:hover {
-          opacity: 0.9;
-        }
-
-        &:nth-child(3) {
-          grid-column: 1/3;
-        }
-
-        &:nth-child(4) {
-          grid-row: 3/5;
-        }
-
-        &:nth-child(7) {
-          grid-column: 1/3;
-        }
-
-        h6 {
-          color: whitesmoke;
+          h6 {
+            color: whitesmoke;
+          }
         }
       }
+
     }
+
+
 
 
 
@@ -200,6 +174,7 @@ body {
   #edit-note {
 
     nav {
+      padding: 1rem 0;
 
       .create__note-header,
       .edit__note-header {
@@ -234,5 +209,4 @@ body {
 
     }
   }
-
 }

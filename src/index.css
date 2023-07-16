@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #1d1d1d;
+    max-width: 1600px;
+    display: grid;
+    place-items: center;
+    height: 100vh;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+p {
+    color: rgb(177, 176, 176);
+    font-size: 0.75rem;
+}
+
+.btn {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #1d1d1d;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn__save {
+    background-color: green;
+    color: whitesmoke;
+}
+
+.btn__trash {
+    background-color: orangered;
+    color: whitesmoke;
+}
+
+.btn__create {
+    position: absolute;
+    right: 3.5rem;
+    bottom: 3.5rem;
+    z-index: 5;
+}
+
+.btn-close {
+    color: whitesmoke;
+}
+
+.app {
+    background-color: black;
+    height: 48rem;
+    width: 25rem;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+.home nav .search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+#note {
+    padding: 1rem;
+    background-color: #1d1d1d;
+}
+
+/* #note .content p {
+    width: 4rem;
+} */

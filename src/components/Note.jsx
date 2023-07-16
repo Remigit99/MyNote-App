@@ -11,7 +11,7 @@ const Note = ({ id, title, details, date }) => {
                     <h6>{title.length > 20 ? title.substring(0, 20) + "..." : title}</h6>
                 </div>
                 <div className="content">
-                    <p>{details.length > 40 ? details.substring(0, 40) + "..." : details}</p>
+                    <p>{details.length > 10 ? details.substring(0, 10) + "..." : details}</p>
                 </div>
 
                 <div className="date">
