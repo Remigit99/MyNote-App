@@ -58,13 +58,7 @@ p {
   color: whitesmoke;
 }
 
-.app .btn__create {
-  position: absolute;
-  right: 3.5rem;
-  bottom: 3.5rem;
-  z-index: 5000;
-  background-color: green;
-}
+
 
 .btn-close {
   color: whitesmoke;
@@ -73,7 +67,7 @@ p {
 /*======= App=========*/
 .app {
   width: 25rem;
-  height: 48rem;
+  height: 90vh;
   background-color: black;
   margin: 2.5rem auto;
   padding: 1px 1rem 0.5rem;
@@ -88,6 +82,7 @@ p {
   .home {
     position: relative;
     z-index: 200;
+    height: 85vh;
 
     nav {
       background-color: black;
@@ -122,19 +117,30 @@ p {
 
     }
 
-    .empty__note {
+    .btn__create {
       position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-
-      h4 {
-        color: antiquewhite;
-      }
+      right: 3.5rem;
+      bottom: 3.5rem;
+      z-index: 5000;
+      background-color: green;
     }
+
+
 
     #main {
       margin: 1rem 0 1.5rem;
+      position: relative;
+
+      .empty__note {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        h4 {
+          color: antiquewhite;
+        }
+      }
 
       main {
         padding: 0.2rem 0 1rem;
@@ -145,6 +151,7 @@ p {
         overflow-y: hidden;
         scroll-behavior: smooth;
         overscroll-behavior: contain;
+        // position: relative;
 
         #note {
           padding: 0.5rem;
@@ -161,13 +168,10 @@ p {
         }
       }
 
+
+
+
     }
-
-
-
-
-
-
   }
 
   #create-note,

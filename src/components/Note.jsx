@@ -8,10 +8,10 @@ const Note = ({ id, title, details, date }) => {
         <Link to={`/edit-note/${id}`}>
             <div id="note">
                 <div className="note__header">
-                    <h6>{title.length > 20 ? title.substring(0, 20) + "..." : title}</h6>
+                    <h6>{title.length > 35 ? title.substring(0, 35) + "..." : title}</h6>
                 </div>
                 <div className="content">
-                    <p>{details.length > 10 ? details.substring(0, 10) + "..." : details}</p>
+                    <p>{details.length > 70 ? details.substring(0, 70) + "..." : details}</p>
                 </div>
 
                 <div className="date">
